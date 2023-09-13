@@ -5,8 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxScopeInstance.align
-import androidx.compose.foundation.layout.RowScopeInstance.align
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -27,6 +25,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.assignmentthree.ui.theme.AssignmentThreeTheme
+import com.google.mlkit.vision.text.Text
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,6 +57,7 @@ fun MainScreen() {
 
     Box(
         modifier = Modifier
+            .fillMaxSize()
             .background( shape = RoundedCornerShape(25.dp),
                 brush = Brush.linearGradient(
                     colors = listOf(
@@ -73,6 +73,7 @@ fun MainScreen() {
         style = MaterialTheme.typography.headlineMedium,
         modifier = Modifier
             .align(Alignment)
+
     )
 
     Spacer(modifier = Modifier.height(50.dp))
@@ -101,10 +102,11 @@ fun MainScreen() {
 
     // Submit button
     Button(
-        modifier = Modifier.align(Alignment.CenterHorizontally),
+        modifier = Modifier
+            .align(Alignment.CenterHorizontally),
         onClick = { /*TODO: Handle login*/ },
     ) {
         Text("Submit")
     }
 }
-}
+
